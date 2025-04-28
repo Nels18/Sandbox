@@ -4,7 +4,6 @@ import { RegisteredFontAwesomeIconsModule } from './shared/icons/registered-font
 
 @Component({
   selector: 'sb-root',
-  standalone: true,
   imports: [RouterOutlet, RegisteredFontAwesomeIconsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

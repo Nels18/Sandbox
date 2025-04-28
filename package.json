@@ -26,7 +26,7 @@
     "@capacitor/angular": "^2.0.3",
     "@capacitor/core": "latest",
     "@capacitor/ios": "^6.1.2",
-    "@fortawesome/angular-fontawesome": "^0.14.1",
+    "@fortawesome/angular-fontawesome": "^1.0.0",
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
     "@fortawesome/free-regular-svg-icons": "^6.4.2",

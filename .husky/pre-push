@@ -1,1 +1,1 @@
-npx --no-install validate-branch-name
+echo '[Husky] pre-push' && npx --no-install validate-branch-name

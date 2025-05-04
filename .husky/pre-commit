@@ -1,4 +1,4 @@
-
+echo '[Husky] pre-commit'
 echo '🏗️👷 Styling, testing and building your project before committing'
 
 # Lint
@@ -9,7 +9,7 @@ npm run lint ||
 )
 
 # Check format
-npx lint-staged && git add -A ||
+npx lint-staged ||
 (
         echo '❌❌ ERROR ❌❌ - 🤢🤮 Your styling looks disgusting. 🤢🤮
                 Make the required changes listed above, add changes and try to commit again.'

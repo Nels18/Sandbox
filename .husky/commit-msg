@@ -1,1 +1,1 @@
-npx --no-install commitlint --edit
+echo '[Husky] commit-msg' && npx --no-install commitlint --edit

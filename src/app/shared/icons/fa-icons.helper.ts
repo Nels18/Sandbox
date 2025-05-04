@@ -5,9 +5,10 @@ import { faIconsDefinitionsToRegister } from './all-registered.fa-icons';
 export const setDefaultPrefixForSyntacticSugarUsage = (
   faConfig: FaConfig,
 ): IconPrefix => {
-  faConfig.defaultPrefix = 'far';
+  const defaultPrefix: IconPrefix = 'far';
+  faConfig.defaultPrefix = defaultPrefix;
 
-  return faConfig.defaultPrefix;
+  return faConfig.defaultPrefix as IconPrefix;
 };
 
 export const registerAllFaIcons = (library: FaIconLibrary): void => {

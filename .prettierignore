@@ -1,0 +1,9 @@
+*.min.scss
+*.min.css
+*.min.*
+node_modules
+documentation
+/package-lock.json
+/src/assets*
+/android*
+/ios*

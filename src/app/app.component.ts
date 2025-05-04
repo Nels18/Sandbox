@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { RegisteredFontAwesomeIconsModule } from './shared/icons/registered-font-awesome-icons.module';
-
 @Component({
   selector: 'sb-root',
   imports: [RouterOutlet, RegisteredFontAwesomeIconsModule],

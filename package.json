@@ -56,6 +56,7 @@
     "@types/jest": "^29.5.13",
     "@typescript-eslint/eslint-plugin": "^8.31.1",
     "@typescript-eslint/parser": "^8.31.1",
+    "auditjs": "^4.0.46",
     "auto-changelog": "^2.5.0",
     "autoprefixer": "^10.4.20",
     "commitizen": "^4.3.1",

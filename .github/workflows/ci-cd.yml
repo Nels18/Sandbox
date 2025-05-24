@@ -1,0 +1,93 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm run lint
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm run test -- --ci --coverage
+
+  build-web:
+    runs-on: ubuntu-latest
+    needs: [lint, test]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm run build
+
+  # build-ios:
+  #   runs-on: macos-latest
+  #   needs: [lint, test]
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: actions/setup-node@v4
+  #       with:
+  #         node-version: 20
+  #     - run: npm ci
+  #     - name: Build Web Assets
+  #       run: npm run build
+  #     - name: Add iOS Platform
+  #       run: npx cap add ios
+  #     - name: Copy Web Assets
+  #       run: npx cap copy ios
+  #     - name: Set up Ruby for Fastlane
+  #       uses: ruby/setup-ruby@v1
+  #       with:
+  #         ruby-version: "3.3.0"
+  #     - name: Install Fastlane
+  #       run: gem install fastlane
+  #     # Ajoute ici l'installation des certificats et profils de provisioning
+  #     - name: Build iOS app with Fastlane
+  #       run: fastlane ios ios_build
+  #       env:
+  #         MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+  #         FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
+  #         MATCH_APP_IDENTIFIER: com.your.app
+  #         # Ajoute d'autres secrets nécessaires
+
+  # build-android:
+  #   runs-on: ubuntu-latest
+  #   needs: [lint, test]
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: actions/setup-node@v4
+  #       with:
+  #         node-version: 20
+  #     - run: npm ci
+  #     - name: Build Web Assets
+  #       run: npm run build
+  #     - name: Add Android Platform
+  #       run: npx cap add android
+  #     - name: Copy Web Assets
+  #       run: npx cap copy android
+  #     - name: Set up Java
+  #       uses: actions/setup-java@v4
+  #       with:
+  #         distribution: "temurin"
+  #         java-version: "17"
+  #     - name: Build Android APK with Gradle
+  #       run: cd android && ./gradlew assembleDebug
+  #     # Ajoute ici la gestion du keystore si tu veux signer l'APK/AAB

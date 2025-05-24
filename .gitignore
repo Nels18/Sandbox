@@ -36,8 +36,6 @@ yarn-error.log
 /libpeerconnection.log
 testem.log
 /typings
-.nx/cache
-.nx/workspace-data
 .eslintcache
 
 # System files
